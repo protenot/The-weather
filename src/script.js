@@ -43,7 +43,7 @@
       const weather = await getWeather(cityName);
       console.log(weather.name);
       console.log(weather.main.temp);
-    //  showWeather(weatherInfoEl, weather);
+    // showWeather(weatherInfoEl, weather);
   
  
    
@@ -51,7 +51,16 @@
   
   let cityN = document.querySelector('.city-name');
   cityN.textContent = weather.name;
-  //document.append(city);
+  let temperatureData = document.querySelector('.temperature-data');
+  temperatureData.textContent = Math.round(weather.main.temp);
+ let iconId =  weather.weather[0].icon;
+ let avatar = document.querySelector(".avatar");
+ avatar.src = "http://openweathermap.org/img/wn/"
+ +iconId+"@2x.png";
+ let container = document.querySelector('.container'); 
+ container.append(avatar);
+ console.log (iconId);
+ //document.append(city);
   //console.log(city)
  /* let temperature =document.createElement("div");
   temperature.innerText = "Погода:" + weather.main.temp;.

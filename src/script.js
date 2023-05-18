@@ -60,8 +60,26 @@
  let container = document.querySelector('.container'); 
  container.append(avatar);
  console.log (iconId);
- //document.append(city);
-  //console.log(city)
+ const button = document.querySelector('button');
+ button.addEventListener("click", addParagraph);
+ function addParagraph() {
+  const citySaved =  cityN.textContent;
+  //const input = document.querySelector(".text-field");
+  
+    const text = citySaved;
+    getElementToList(text);
+    clearField();
+    return text;
+  
+}
+function getElementToList(text) {
+  const paragraph = document.createElement("p");
+  paragraph.innerText = text;
+  const blockParagraphs = document.querySelector(".container");
+  if (blockParagraphs) {
+    blockParagraphs.append(paragraph);
+  }
+}
  /* let temperature =document.createElement("div");
   temperature.innerText = "Погода:" + weather.main.temp;.
   document.append(temperature);
@@ -70,4 +88,5 @@
   avatar.src = "http://openweathermap.org/img/wn/04d@2x.png";
   document.append(avatar);*/
 });
+
 })();

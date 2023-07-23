@@ -1,3 +1,5 @@
+import {meal} from './meal.js'
+
 (async function () {
     // Получаем указатели на нужные элементы
     const formEl = document.querySelector("form");
@@ -20,13 +22,37 @@
      */
     const API_KEY = 'c768bc4e962d2a69c28ba404045dc96c';
     async function getWeather(cityName) {
+      
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityName}&appid=${API_KEY}`);
       
       return await response.json();
       // put your code here
       
     }
+    async function getRecipe(meal){
+      const APIKEY = 'cea5775e8e6340d19ba2df6cd5863531'
+      const response1 = await fetch (`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKEY}&ingredients=${meal}`)
+        return await response1.json();
+ 
+    }
+   // const mealResult = getRecipe('lemon').then((data)=>console.log(data))
     
+ // console.log(mealResult)
+ console.log (meal[1])
+
+ function getDataFromPromise(mealResult){
+  console.log(mealResult.length);
+  for (let i =0; i < mealResult.length; i++){
+
+
+  }
+ }
+ getDataFromPromise(meal)
+ 
+ 
+ let listOfMeal = document.createElement('div')
+
+
     formEl.addEventListener("submit", async (ev) => {
       // чтобы не перезагружать страницу
       ev.preventDefault();

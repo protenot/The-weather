@@ -4,4 +4,4 @@ async function getRecipeCommom(id){
   return await response2.json() 
   
   }
-  
+  // это просто комментарий 
